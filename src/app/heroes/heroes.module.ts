@@ -26,10 +26,10 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    HeroesRoutingModule,
     FlexLayoutModule,
     MaterialModule,
-    FormsModule
+    FormsModule,
+    HeroesRoutingModule
   ]
 })
 export class HeroesModule { }
