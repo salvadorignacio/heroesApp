@@ -6,9 +6,11 @@
 
 <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
 
-    <div fxFlex="50" fxLayout="column" fxLayout.xs="column">
-        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="40px">
-            <mat-form-field fxFlex="100">
+    <div fxFlex="50" fxLayout="column">
+
+        <div fxLayout="row" fxLayout.xs="column" fxLayoutGap="20px">
+
+            <mat-form-field fxFlex="100" fxLayout.xs="column" >
                 <mat-label>Super Héroe</mat-label>
                 <input 
                 matInput
@@ -25,9 +27,10 @@
                 [(ngModel)]="heroe.alter_ego"
                 required>
             </mat-form-field>
+
         </div>
         
-            <mat-form-field fxFlex="100">
+            <mat-form-field >
                 <mat-label>Primera Aparición</mat-label>
                 <input 
                 matInput
@@ -36,7 +39,7 @@
                 required>
             </mat-form-field>
 
-            <mat-form-field fxFlex="100">
+            <mat-form-field >
                 <mat-label>Personajes</mat-label>
                 <input 
                 matInput
@@ -45,14 +48,14 @@
                 required>
             </mat-form-field>
 
-            <mat-form-field fxFlex="100">
+            <mat-form-field >
                 <mat-label>Creador</mat-label>
                 <mat-select required [(ngModel)]="heroe.publisher">
                     <mat-option *ngFor="let creador of creadores" [value]="creador.id">{{creador.desc}}</mat-option>
                 </mat-select>
             </mat-form-field>
 
-            <mat-form-field fxFlex="100">
+            <mat-form-field >
                 <mat-label>Url Foto</mat-label>
                 <input 
                 matInput
@@ -64,11 +67,14 @@
             <br>
 
             <div fxLayout>
+
                 <button mat-raised-button color="primary" (click)="guardar()">
                     <mat-icon>edit</mat-icon>
-                    Guardar
+                    {{ ( heroe.id )? 'Actualizar' : 'Guardar' }}
                 </button>
+
                 <span class="spacer"></span>
+
                 <button *ngIf="heroe.id" mat-raised-button color="warn" (click)="borrar()">
                     <mat-icon>remove</mat-icon>
                     Borrar
